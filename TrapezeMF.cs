@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace T2FSv1
 {
@@ -14,6 +15,11 @@ namespace T2FSv1
         private double mean2LMF;
         private double endLMF;
 
+        private List<Double> elements;
+
+        private double cl = 0.0;
+        private double cr = 0.0;
+
         public TrapezeMF(double startUMF, double mean1UMF, double mean2UMF, double endUMF, double startLMF, double mean1LMF, double mean2LMF, double endLMF)
         {
             this.startUMF = startUMF;
@@ -28,17 +34,36 @@ namespace T2FSv1
 
         public override double getCl()
         {
-            throw new System.NotImplementedException();
+            if (cl == 0.0)
+                cl = CentriodIterMethod.getInstance().getCrorCl(this);
+            
+            return cl;
         }
 
         public override double getCr()
         {
-            throw new System.NotImplementedException();
+            if (cr == 0.0)
+                cr = CentriodIterMethod.getInstance().getCrorCl(this,true);
+
+            return cr;
         }
 
         public override List<double> getElements(int n)
         {
-            throw new System.NotImplementedException();
+            if (elements == null)
+            {
+                elements = new List<Double>();
+
+                double start = Math.Min(startLMF, startUMF);
+                double end = Math.Max(endLMF, endUMF);
+
+                double inc = (start + end) / (n - 1);
+
+                for (double i = start; i <= end; i = i + inc)
+                    elements.Add(i);
+            }
+
+            return elements;
         }
 
         public override double lowerMemFunction(double x)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace T2FSv1
 {
@@ -18,44 +19,55 @@ namespace T2FSv1
             MemFunc AverageTip = new TrapezeMF(5, 7.5, 7.5, 10, 6, 7.5, 7.5, 9);
             MemFunc GenerousTip = new TrapezeMF(9, 12, 12, 15, 10, 12, 12, 14);
 
-            List<MemFunc> antc = new ArrayList<MemFunc>();
-            List<MemFunc> cons = new ArrayList<MemFunc>();
+            List<MemFunc> antc = new List<MemFunc>();
+            List<MemFunc> cons = new List<MemFunc>();
 
-            List<Rule> ruleList = new ArrayList<Rule>();
+            List<Rule> ruleList = new List<Rule>();
 
-            antc.add(Rancid); antc.add(PoorService); cons.add(CheapTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Rancid); antc.Add(PoorService); cons.Add(CheapTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            antc.add(Rancid); antc.add(GoodService); cons.add(CheapTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Rancid); antc.Add(GoodService); cons.Add(CheapTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            antc.add(Rancid); antc.add(ExcellentService); cons.add(AverageTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Rancid); antc.Add(ExcellentService); cons.Add(AverageTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            antc.add(Delicious); antc.add(PoorService); cons.add(AverageTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Delicious); antc.Add(PoorService); cons.Add(AverageTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            antc.add(Delicious); antc.add(GoodService); cons.add(AverageTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Delicious); antc.Add(GoodService); cons.Add(AverageTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            antc.add(Delicious); antc.add(ExcellentService); cons.add(GenerousTip);
-            ruleList.add(new Rule(antc, cons, new ProductTnorm()));
-            antc.clear(); cons.clear();
+            antc.Add(Delicious); antc.Add(ExcellentService); cons.Add(GenerousTip);
+            ruleList.Add(new Rule(antc, cons, new ProductTnorm()));
+            antc.Clear(); cons.Clear();
 
-            Tipping tipping = new Tipping();
+            Program start = new Program();
 
-            double x = 2.0;
-            double y = 8.0;
+            double x = 1.0;
+            double y = 1.0;
 
-            System.out.println("Food Quality : " + x);
-            System.out.println("Service Level : " + y);
-            System.out.println(tipping.findTip(ruleList, x, y));
+            Console.WriteLine("Food Quality : " + x);
+            Console.WriteLine("Service Level : " + y);
+            Console.WriteLine(start.findTip(ruleList, x, y));
 
+        }
+
+        public double findTip(List<Rule> ruleList, double x, double y)
+        {
+            foreach (Rule rule in ruleList)
+            {
+                rule.calculateFiringInterval(x, y);
+            }
+
+            TypeReduce reducer = new TypeReduce(ruleList);
+            return (reducer.ylk() + reducer.yrk()) / 2;
         }
     }
 }
