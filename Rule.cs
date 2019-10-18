@@ -7,7 +7,7 @@ namespace T2FSv1
     {
         private List<MemFunc> antc = new List<MemFunc>();
         private List<MemFunc> cons = new List<MemFunc>();
-        private Operator firingInterval;
+        public Operator firingInterval { get; private set; }
 
         public Rule(List<MemFunc> antc, List<MemFunc> cons, Operator firingInterval)
         {

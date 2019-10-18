@@ -56,7 +56,7 @@ namespace T2FSv1
             Console.WriteLine("Food Quality : " + x);
             Console.WriteLine("Service Level : " + y);
             Console.WriteLine(start.findTip(ruleList, x, y));
-
+            Console.ReadLine();
         }
 
         public double findTip(List<Rule> ruleList, double x, double y)
@@ -67,7 +67,7 @@ namespace T2FSv1
             }
 
             TypeReduce reducer = new TypeReduce(ruleList);
-            return (reducer.ylk() + reducer.yrk()) / 2;
+            return (reducer.ylk1() + reducer.yrk1()) / 2;
         }
     }
 }

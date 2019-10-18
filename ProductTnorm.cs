@@ -7,8 +7,8 @@
         private double muux { get; set; }
         private double muuy { get; set; }
 
-        private double firingIntervalU { get; set; }
-        private double firingIntervalL { get; set; }
+        public double firingIntervalU { get; private set; }
+        public double firingIntervalL { get; private set; }
 
         public void setFiringInterval(double firingIntervalx, double firingIntervaly)
         {
@@ -24,6 +24,16 @@
             this.muuy = muuy;
             this.firingIntervalU = mulx * muly;
             this.firingIntervalL = muux * muuy;
+        }
+
+        public double getFiringIntervalU()
+        {
+            return firingIntervalU;
+        }
+
+        public double getFiringIntervalL()
+        {
+            return firingIntervalL;
         }
     }
 }

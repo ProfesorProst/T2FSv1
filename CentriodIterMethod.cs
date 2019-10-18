@@ -50,7 +50,7 @@ namespace T2FSv1
             foreach (double step in memFunc.getElements(n))
             {
                 double avrBetvenLandU = (memFunc.lowerMemFunction(step) + memFunc.upperMemFunction(step)) / 2;
-                num += step * avrBetvenLandU;
+                num = num + step * avrBetvenLandU;
                 den += avrBetvenLandU;
             }
 
