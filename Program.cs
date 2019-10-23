@@ -62,10 +62,8 @@ namespace T2FSv1
         public double findTip(List<Rule> ruleList, double x, double y)
         {
             foreach (Rule rule in ruleList)
-            {
                 rule.calculateFiringInterval(x, y);
-            }
-
+            
             TypeReduce reducer = new TypeReduce(ruleList);
             return (reducer.ylk1() + reducer.yrk1()) / 2;
         }

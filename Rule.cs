@@ -16,6 +16,13 @@ namespace T2FSv1
             this.firingInterval = firingInterval;
         }
 
+        public Rule(MemFunc[] antc, List<MemFunc> cons, Operator firingInterval)
+        {
+            this.antc.AddRange(antc);
+            this.cons.AddRange(cons);
+            this.firingInterval = firingInterval;
+        }
+
         internal void calculateFiringInterval(double x, double y)
         {
             MemFunc memFunc = antc[0];
