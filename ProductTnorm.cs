@@ -1,12 +1,10 @@
-﻿namespace T2FSv1
-{
-    public class ProductTnorm : Operator
-    {
-        private double mulx { get; set; }
-        private double muly { get; set; }
-        private double muux { get; set; }
-        private double muuy { get; set; }
+﻿using System.Collections.Generic;
+using System.Linq;
 
+namespace T2FSv1
+{
+    public class ProductTnorm : IOperator
+    {
         public double firingIntervalU { get; private set; }
         public double firingIntervalL { get; private set; }
 
@@ -18,10 +16,6 @@
 
         public void calculateFiringInterval(double mulx, double muly, double muux, double muuy)
         {
-            this.mulx = mulx;
-            this.muly = muly;
-            this.muux = muux;
-            this.muuy = muuy;
             this.firingIntervalU = mulx * muly;
             this.firingIntervalL = muux * muuy;
         }
@@ -34,6 +28,12 @@
         public double getFiringIntervalL()
         {
             return firingIntervalL;
+        }
+
+        public void calculateFiringInterval(List<double> muu, List<double> mul)
+        {
+            this.firingIntervalU = muu.Aggregate((x, y) => x * y);
+            this.firingIntervalL = mul.Aggregate((x, y) => x * y);
         }
     }
 }

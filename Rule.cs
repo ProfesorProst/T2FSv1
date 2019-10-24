@@ -8,9 +8,9 @@ namespace T2FSv1
         private List<IMemFunc> antc = new List<IMemFunc>();
         private List<IMemFunc> cons = new List<IMemFunc>();
 
-        public Operator firingInterval { get; private set; }
+        public IOperator firingInterval { get; private set; }
 
-        public Rule(List<IMemFunc> antc, List<IMemFunc> cons, Operator firingInterval)
+        public Rule(List<IMemFunc> antc, List<IMemFunc> cons, IOperator firingInterval)
         {
             this.antc.AddRange(antc);
             this.cons.AddRange(cons);
@@ -29,6 +29,22 @@ namespace T2FSv1
 
 
             firingInterval.calculateFiringInterval(mulx, muly, muux, muuy);
+        }
+
+        internal void calculateFiringInterval(double[] inputs)
+        {
+            int i = 0;
+            List<double> muu = new List<double>();
+            List<double> mul = new List<double>();
+            foreach (double number in inputs)
+            {
+                IMemFunc memFunc = antc[i];
+                muu.Add(memFunc.upperMemFunction(number));
+                mul.Add(memFunc.lowerMemFunction(number));
+                i++;
+            }
+
+            firingInterval.calculateFiringInterval(muu,mul);
         }
 
         public double getClAvgy()

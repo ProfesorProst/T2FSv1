@@ -37,8 +37,6 @@ namespace T2FSv1
             ylk.Sort();
         }
 
-
-
         private TypeReduce(Dictionary<Double, Rule> ruleMapy, Dictionary<Double, Rule> ruleMapx, List<Double> yrk, List<Double> ylk)
         {
             this.ruleMapy = ruleMapy;
