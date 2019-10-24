@@ -2,7 +2,7 @@
 
 namespace T2FSv1
 {
-    public abstract class AbstractTrapezeMF : MemFunc
+    public abstract class AbstractTrapezeMF : IMemFunc
     {
         public abstract double getCl();
         public abstract double getCr();

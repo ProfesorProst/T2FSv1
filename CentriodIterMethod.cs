@@ -23,7 +23,7 @@ namespace T2FSv1
             return instance;
         }
 
-        public double getCrorCl(MemFunc memFunc, bool ifCr = false)
+        public double getCrorCl(IMemFunc memFunc, bool ifCr = false)
         {
             double yQuote = step1ToAvr(memFunc);//Step 1
 
@@ -42,7 +42,7 @@ namespace T2FSv1
             return yQuote;
         }
 
-        private double step1ToAvr(MemFunc memFunc)
+        private double step1ToAvr(IMemFunc memFunc)
         {
             double num = 0.0;
             double den = 0.0;
@@ -57,7 +57,7 @@ namespace T2FSv1
             return num / den;
         }
         
-        private int step2FindE(MemFunc memFunc, double yQuote)
+        private int step2FindE(IMemFunc memFunc, double yQuote)
         {
             int yeCount = 1;
             foreach (double step in memFunc.getElements(n))
@@ -70,7 +70,7 @@ namespace T2FSv1
             return yeCount;
         }
 
-        private double step3ForClOrCr(MemFunc memFunc, int e, bool ifCr = false)
+        private double step3ForClOrCr(IMemFunc memFunc, int e, bool ifCr = false)
         {
             double num = 0.0;
             double den = 0.0;

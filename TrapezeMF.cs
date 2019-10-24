@@ -20,6 +20,10 @@ namespace T2FSv1
         private double cl = 0.0;
         private double cr = 0.0;
 
+        public TrapezeMF()
+        {
+        }
+
         public TrapezeMF(double startUMF, double mean1UMF, double mean2UMF, double endUMF, double startLMF, double mean1LMF, double mean2LMF, double endLMF)
         {
             this.startUMF = startUMF;

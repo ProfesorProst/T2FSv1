@@ -5,18 +5,12 @@ namespace T2FSv1
 {
     public class Rule
     {
-        private List<MemFunc> antc = new List<MemFunc>();
-        private List<MemFunc> cons = new List<MemFunc>();
+        private List<IMemFunc> antc = new List<IMemFunc>();
+        private List<IMemFunc> cons = new List<IMemFunc>();
+
         public Operator firingInterval { get; private set; }
 
-        public Rule(List<MemFunc> antc, List<MemFunc> cons, Operator firingInterval)
-        {
-            this.antc.AddRange(antc);
-            this.cons.AddRange(cons);
-            this.firingInterval = firingInterval;
-        }
-
-        public Rule(MemFunc[] antc, List<MemFunc> cons, Operator firingInterval)
+        public Rule(List<IMemFunc> antc, List<IMemFunc> cons, Operator firingInterval)
         {
             this.antc.AddRange(antc);
             this.cons.AddRange(cons);
@@ -25,7 +19,7 @@ namespace T2FSv1
 
         internal void calculateFiringInterval(double x, double y)
         {
-            MemFunc memFunc = antc[0];
+            IMemFunc memFunc = antc[0];
             double muux = memFunc.upperMemFunction(x);
             double mulx = memFunc.lowerMemFunction(x);
 
@@ -41,7 +35,7 @@ namespace T2FSv1
         {
             double avg = 0.0;
             int n = 0;
-            foreach (MemFunc memFunc in cons)
+            foreach (IMemFunc memFunc in cons)
             {
                 avg = avg + memFunc.getCr();
                 n++;
@@ -54,7 +48,7 @@ namespace T2FSv1
         {
             double avg = 0.0;
             int n = 0;
-            foreach (MemFunc memFunc in cons)
+            foreach (IMemFunc memFunc in cons)
             {
                 avg = avg + memFunc.getCl();
                 n++;

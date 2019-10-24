@@ -47,7 +47,7 @@ namespace T2FSv1
             this.ylk = ylk;
         }
 
-        public double ylk1()
+        public double yl()
         {
             double ylkQuote = step1(ylk, ruleMapx);
             int roul = 0;
@@ -73,7 +73,7 @@ namespace T2FSv1
             return ylkQuote;
         }
 
-        public double yrk1()
+        public double yr()
         {
             double yrkQuote = step1(yrk, ruleMapy);
 
