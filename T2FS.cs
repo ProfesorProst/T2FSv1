@@ -17,15 +17,16 @@ namespace T2FSv1
 
         public string Calculete()
         {
-            double center = findTip(ruleList, input[0], input[1]);
-            
+            double center = findTip(ruleList, input);
+            Console.WriteLine(center);
+
             return Defuzyyficator(center).name;
         }
 
-        private double findTip(List<Rule> ruleList, double x, double y)
+        private double findTip(List<Rule> ruleList, double[] inputs)
         {
             foreach (Rule rule in ruleList)
-                rule.calculateFiringInterval(x, y);
+                rule.calculateFiringInterval(inputs);
 
             TypeReduce reducer = new TypeReduce(ruleList);
             return (reducer.yl() + reducer.yr()) / 2;

@@ -17,20 +17,6 @@ namespace T2FSv1
             this.firingInterval = firingInterval;
         }
 
-        internal void calculateFiringInterval(double x, double y)
-        {
-            IMemFunc memFunc = antc[0];
-            double muux = memFunc.upperMemFunction(x);
-            double mulx = memFunc.lowerMemFunction(x);
-
-            memFunc = antc[1];
-            double muuy = memFunc.upperMemFunction(y);
-            double muly = memFunc.lowerMemFunction(y);
-
-
-            firingInterval.calculateFiringInterval(mulx, muly, muux, muuy);
-        }
-
         internal void calculateFiringInterval(double[] inputs)
         {
             int i = 0;
