@@ -15,6 +15,10 @@ namespace T2FSv1
             this.input = input;
         }
 
+        public T2FS()
+        {
+        }
+
         public string Calculete()
         {
             double center = findTip(ruleList, input);
@@ -36,6 +40,15 @@ namespace T2FSv1
         {
             IMemFunc memFunc = new TrapezeMF(); 
             return memFunc;
+        }
+
+        public void AddRule(IMemFunc[] antc, IMemFunc rezult, ref List<Rule> rulelist)
+        {
+            List<IMemFunc> mems = new List<IMemFunc>();
+            mems.AddRange(antc);
+            List<IMemFunc> rezults = new List<IMemFunc>();
+            rezults.Add(rezult);
+            rulelist.Add(new Rule(mems, rezults, new ProductTnorm()));
         }
 
     }
