@@ -1,6 +1,7 @@
 ﻿using System;
+using T2FSv1.Entity;
 
-namespace T2FSv1
+namespace T2FSv1.Controller
 {
     public class CentriodIterMethod
     {

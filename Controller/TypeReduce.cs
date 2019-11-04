@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using T2FSv1.Entity;
 
-namespace T2FSv1
+namespace T2FSv1.Controller
 {
     public class TypeReduce
     {

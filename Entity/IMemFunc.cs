@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace T2FSv1
+namespace T2FSv1.Entity
 {
     public interface IMemFunc
     {

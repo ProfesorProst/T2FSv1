@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace T2FSv1
+namespace T2FSv1.Entity
 {
     public abstract class AbstractTrapezeMF : IMemFunc
     {
@@ -9,17 +9,17 @@ namespace T2FSv1
         public abstract double getCr();
         public abstract List<double> getElements(int n);
 
-        public string getUncertainVal()
-    {
-        return null;
-    }
-
-    public double getUncertainValDiff()
-    {
-        return 0;
-    }
-
         public abstract double lowerMemFunction(double x);
         public abstract double upperMemFunction(double x);
+
+        public string getUncertainVal()
+        {
+            return null;
+        }
+
+        public double getUncertainValDiff()
+        {
+            return 0;
+        }
     }
 }

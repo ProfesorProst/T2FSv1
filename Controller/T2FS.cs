@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using T2FSv1.Entity;
 
-namespace T2FSv1
+namespace T2FSv1.Controller
 {
     class T2FS
     {

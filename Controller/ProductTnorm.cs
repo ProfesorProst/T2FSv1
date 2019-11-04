@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace T2FSv1
+namespace T2FSv1.Controller
 {
     public class ProductTnorm : IOperator
     {
